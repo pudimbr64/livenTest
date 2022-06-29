@@ -16,6 +16,10 @@ Rode ```yarn``` ou ```npm install``` na pasta root do projeto para baixar e inst
 
 É preciso também configurar o arquivo .env com a JWT_SECRET_KEY. Para isso execute ```node``` no terminal na pasta root do projeto. Após isso, execute ```crypto.randomBytes(60).toString('hex');``` e cole o resultado no arquivo .env .
 
+## Para rodar a suite de testes
+
+Rode o comando ```yarn test``` ou ```npm run test``` para rodar os testes automatizados.
+
 ## Rodando a Aplicação
 
 Rode o comando ```yarn start``` ou ```npm run start``` e abra ```http://localhost:5000/api-docs``` em seu navegador para visualizar a documentação swagger e testar as requisições.
