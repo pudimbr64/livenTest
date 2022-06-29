@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "e8d6731e-dec6-4818-b10e-c33347473957",
+		"name": "LivenTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Log in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"testuser@email.com\",\n    \"password\": \"pass123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Logs in and returns auth token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Requests",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"birthdate\": \"1993-11-04\",\n    \"password\": \"pass123\",\n    \"email\": \"testuser1@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/createUser",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"createUser"
+							]
+						},
+						"description": "Creates an user."
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJUZXN0IFVzZXIiLCJiaXJ0aGRhdGUiOiIxOTkzLTExLTA0Iiwic2FsdCI6IjhiMzRkNWFjYzg3NTljNjcwNjZiOGJhZjIxMmNkN2I0IiwiaGFzaCI6Ijk3ZWM2NGYxNGZmOWI2YjFlODU3YWRlZmI5NzcwYmMzMzE5MjlkNTFhMTk0OGYyMjI3OTc5YTEzNDk2ODgzOTc4ZmE5MzQwNzUzZWY1YWRjNDdhYTk4MWQwMzJiZmY5OTExNGUyNmIyMzU5OTkxZGIyODBhZDI4MTlkZGZhNDNiIiwiZW1haWwiOiJhbWlnbzJAZW1haWwuY29tIiwiaWF0IjoxNjU2NDI3MjY0LCJleHAiOjE2NTY1MTM2NjR9.hb1geNQ21m3TdBGfqx_B66qqMEzIIFVfFDSRQPwpBb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Andrew Simmons Testando\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/alterUser",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"alterUser"
+							]
+						},
+						"description": "Updates user with payload"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJUZXN0IFVzZXIiLCJiaXJ0aGRhdGUiOiIxOTkzLTExLTA0Iiwic2FsdCI6IjhiMzRkNWFjYzg3NTljNjcwNjZiOGJhZjIxMmNkN2I0IiwiaGFzaCI6Ijk3ZWM2NGYxNGZmOWI2YjFlODU3YWRlZmI5NzcwYmMzMzE5MjlkNTFhMTk0OGYyMjI3OTc5YTEzNDk2ODgzOTc4ZmE5MzQwNzUzZWY1YWRjNDdhYTk4MWQwMzJiZmY5OTExNGUyNmIyMzU5OTkxZGIyODBhZDI4MTlkZGZhNDNiIiwiZW1haWwiOiJhbWlnbzJAZW1haWwuY29tIiwiaWF0IjoxNjU2NDI3MjY0LCJleHAiOjE2NTY1MTM2NjR9.hb1geNQ21m3TdBGfqx_B66qqMEzIIFVfFDSRQPwpBb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/getUserData",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"getUserData"
+							]
+						},
+						"description": "Return user data including addresses if any"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IlRlc3QgVXNlciIsImJpcnRoZGF0ZSI6IjE5OTMtMTEtMDQiLCJzYWx0IjoiOWRjNDY2ODVlMjBhZjljNTljNDYxMzc2MjA5ZWEwNGQiLCJoYXNoIjoiNmQ1NGE4YmYxZjYxYWJjYWIwNTk5M2JjOGRjZjM1Mzc0ZjdlZTEyYzljZjE3NmZhNDQwNWRlY2YxZWYxNDRjMjEwZWIyZmEwZWQwNGVhYTE1Yjk2N2I0MzQ0OTI3MjY0ZGQxYTk4YWE3ZTA3Yjk1MDdmMTgwNmMwY2ZjNGViYTYiLCJlbWFpbCI6InRlc3R1c2VyQGVtYWlsLmNvbSIsImlhdCI6MTY1NjM3ODQyNiwiZXhwIjoxNjU2NDY0ODI2fQ.loMNvplDvQfZX-C5h__jyQ8US-k5ZSWGgg1Gea6dDt8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/deleteUser",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"deleteUser"
+							]
+						},
+						"description": "Deletes user logged in"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address Requests",
+			"item": [
+				{
+					"name": "Create Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJUZXN0IFVzZXIiLCJiaXJ0aGRhdGUiOiIxOTkzLTExLTA0Iiwic2FsdCI6IjhiMzRkNWFjYzg3NTljNjcwNjZiOGJhZjIxMmNkN2I0IiwiaGFzaCI6Ijk3ZWM2NGYxNGZmOWI2YjFlODU3YWRlZmI5NzcwYmMzMzE5MjlkNTFhMTk0OGYyMjI3OTc5YTEzNDk2ODgzOTc4ZmE5MzQwNzUzZWY1YWRjNDdhYTk4MWQwMzJiZmY5OTExNGUyNmIyMzU5OTkxZGIyODBhZDI4MTlkZGZhNDNiIiwiZW1haWwiOiJhbWlnbzJAZW1haWwuY29tIiwiaWF0IjoxNjU2NDI3MjY0LCJleHAiOjE2NTY1MTM2NjR9.hb1geNQ21m3TdBGfqx_B66qqMEzIIFVfFDSRQPwpBb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"street\": \"rua legal\",\n    \"addressName\": \"Casa da Mãe\",\n    \"number\": \"209\",\n    \"country\": \"BR\",\n    \"city\": \"sjc daora\",\n    \"neighborhood\": \"bairo do mal\",\n    \"zipcode\": \"12233900\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/createAddress",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"createAddress"
+							]
+						},
+						"description": "Creates an address to specific user."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJUZXN0IFVzZXIiLCJiaXJ0aGRhdGUiOiIxOTkzLTExLTA0Iiwic2FsdCI6IjhiMzRkNWFjYzg3NTljNjcwNjZiOGJhZjIxMmNkN2I0IiwiaGFzaCI6Ijk3ZWM2NGYxNGZmOWI2YjFlODU3YWRlZmI5NzcwYmMzMzE5MjlkNTFhMTk0OGYyMjI3OTc5YTEzNDk2ODgzOTc4ZmE5MzQwNzUzZWY1YWRjNDdhYTk4MWQwMzJiZmY5OTExNGUyNmIyMzU5OTkxZGIyODBhZDI4MTlkZGZhNDNiIiwiZW1haWwiOiJhbWlnbzJAZW1haWwuY29tIiwiaWF0IjoxNjU2NDI3MjY0LCJleHAiOjE2NTY1MTM2NjR9.hb1geNQ21m3TdBGfqx_B66qqMEzIIFVfFDSRQPwpBb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"addressId\": 1,\n    \"newAddressData\": {\n        \"addressName\": \"Casa da Mãe Joana123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/alterAddress",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"alterAddress"
+							]
+						},
+						"description": "Updates given address."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Addresses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJUZXN0IFVzZXIiLCJiaXJ0aGRhdGUiOiIxOTkzLTExLTA0Iiwic2FsdCI6IjhiMzRkNWFjYzg3NTljNjcwNjZiOGJhZjIxMmNkN2I0IiwiaGFzaCI6Ijk3ZWM2NGYxNGZmOWI2YjFlODU3YWRlZmI5NzcwYmMzMzE5MjlkNTFhMTk0OGYyMjI3OTc5YTEzNDk2ODgzOTc4ZmE5MzQwNzUzZWY1YWRjNDdhYTk4MWQwMzJiZmY5OTExNGUyNmIyMzU5OTkxZGIyODBhZDI4MTlkZGZhNDNiIiwiZW1haWwiOiJhbWlnbzJAZW1haWwuY29tIiwiaWF0IjoxNjU2NDI3MjY0LCJleHAiOjE2NTY1MTM2NjR9.hb1geNQ21m3TdBGfqx_B66qqMEzIIFVfFDSRQPwpBb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/getAddress/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"getAddress",
+								"1"
+							]
+						},
+						"description": "Returns all address from given user with query string params/path params"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Addresses query string",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJUZXN0IFVzZXIiLCJiaXJ0aGRhdGUiOiIxOTkzLTExLTA0Iiwic2FsdCI6IjhiMzRkNWFjYzg3NTljNjcwNjZiOGJhZjIxMmNkN2I0IiwiaGFzaCI6Ijk3ZWM2NGYxNGZmOWI2YjFlODU3YWRlZmI5NzcwYmMzMzE5MjlkNTFhMTk0OGYyMjI3OTc5YTEzNDk2ODgzOTc4ZmE5MzQwNzUzZWY1YWRjNDdhYTk4MWQwMzJiZmY5OTExNGUyNmIyMzU5OTkxZGIyODBhZDI4MTlkZGZhNDNiIiwiZW1haWwiOiJhbWlnbzJAZW1haWwuY29tIiwiaWF0IjoxNjU2NDI3MjY0LCJleHAiOjE2NTY1MTM2NjR9.hb1geNQ21m3TdBGfqx_B66qqMEzIIFVfFDSRQPwpBb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/getAddress?country=BR",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"getAddress"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "BR"
+								}
+							]
+						},
+						"description": "Returns all address from given user with query string params/path params"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJUZXN0IFVzZXIiLCJiaXJ0aGRhdGUiOiIxOTkzLTExLTA0Iiwic2FsdCI6IjhiMzRkNWFjYzg3NTljNjcwNjZiOGJhZjIxMmNkN2I0IiwiaGFzaCI6Ijk3ZWM2NGYxNGZmOWI2YjFlODU3YWRlZmI5NzcwYmMzMzE5MjlkNTFhMTk0OGYyMjI3OTc5YTEzNDk2ODgzOTc4ZmE5MzQwNzUzZWY1YWRjNDdhYTk4MWQwMzJiZmY5OTExNGUyNmIyMzU5OTkxZGIyODBhZDI4MTlkZGZhNDNiIiwiZW1haWwiOiJhbWlnbzJAZW1haWwuY29tIiwiaWF0IjoxNjU2NDI3MjY0LCJleHAiOjE2NTY1MTM2NjR9.hb1geNQ21m3TdBGfqx_B66qqMEzIIFVfFDSRQPwpBb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/deleteAddress/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"deleteAddress",
+								"1"
+							]
+						},
+						"description": "Deletes an address from active user."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

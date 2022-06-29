@@ -1,0 +1,508 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "LivenTest",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Log in",
+        "description": "Logs in and returns auth token",
+        "operationId": "Login",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              },
+              "example": {
+                "email": "testuser@email.com",
+                "password": "pass123"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/createUser": {
+      "post": {
+        "tags": [
+          "User Requests"
+        ],
+        "summary": "Create User",
+        "description": "Creates an user.",
+        "operationId": "CreateUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRequest"
+              },
+              "example": {
+                "name": "Test User",
+                "birthdate": "1993-11-04",
+                "password": "pass123",
+                "email": "testuser1@email.com"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/alterUser": {
+      "post": {
+        "tags": [
+          "User Requests"
+        ],
+        "summary": "Update User",
+        "description": "Updates user with payload",
+        "operationId": "UpdateUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              },
+              "example": {
+                "name": "Andrew Simmons Testando"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/getUserData": {
+      "get": {
+        "tags": [
+          "User Requests"
+        ],
+        "summary": "Get User Data",
+        "description": "Return user data including addresses if any",
+        "operationId": "GetUserData",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/deleteUser": {
+      "delete": {
+        "tags": [
+          "User Requests"
+        ],
+        "summary": "Delete User",
+        "description": "Deletes user logged in",
+        "operationId": "DeleteUser",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/createAddress": {
+      "post": {
+        "tags": [
+          "Address Requests"
+        ],
+        "summary": "Create Address",
+        "description": "Creates an address to specific user.",
+        "operationId": "CreateAddress",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAddressRequest"
+              },
+              "example": {
+                "street": "rua legal",
+                "addressName": "Casa da Mãe",
+                "number": "209",
+                "country": "BR",
+                "city": "sjc daora",
+                "neighborhood": "bairo do mal",
+                "zipcode": "12233900"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/alterAddress": {
+      "post": {
+        "tags": [
+          "Address Requests"
+        ],
+        "summary": "Update Address",
+        "description": "Updates given address.",
+        "operationId": "UpdateAddress",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAddressRequest"
+              },
+              "example": {
+                "addressId": 1,
+                "newAddressData": {
+                  "street": "rua legal mais legal ainda",
+                  "addressName": "Casa da Joana 123",
+                  "number": "209",
+                  "country": "BR",
+                  "city": "sp daora",
+                  "neighborhood": "bairo do mal",
+                  "zipcode": "12233900"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/getAddress/1": {
+      "get": {
+        "tags": [
+          "Address Requests"
+        ],
+        "summary": "Get Addresses",
+        "description": "Returns all address from given user with query string params/path params",
+        "operationId": "GetAddresses",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/getAddress": {
+      "get": {
+        "tags": [
+          "Address Requests"
+        ],
+        "summary": "Get Addresses query string",
+        "description": "Returns all address from given user with query string params/path params",
+        "operationId": "GetAddressesquerystring",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "BR"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/deleteAddress/1": {
+      "delete": {
+        "tags": [
+          "Address Requests"
+        ],
+        "summary": "Delete Address",
+        "description": "Deletes an address from active user.",
+        "operationId": "DeleteAddress",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LoginRequest": {
+        "title": "LoginRequest",
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "testuser@email.com",
+          "password": "pass123"
+        }
+      },
+      "CreateUserRequest": {
+        "title": "CreateUserRequest",
+        "required": [
+          "name",
+          "birthdate",
+          "password",
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "Test User",
+          "birthdate": "1993-11-04",
+          "password": "pass123",
+          "email": "testuser1@email.com"
+        }
+      },
+      "UpdateUserRequest": {
+        "title": "UpdateUserRequest",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "Andrew Simmons Testando"
+        }
+      },
+      "CreateAddressRequest": {
+        "title": "CreateAddressRequest",
+        "required": [
+          "street",
+          "addressName",
+          "number",
+          "country",
+          "city",
+          "neighborhood",
+          "zipcode"
+        ],
+        "type": "object",
+        "properties": {
+          "street": {
+            "type": "string"
+          },
+          "addressName": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "neighborhood": {
+            "type": "string"
+          },
+          "zipcode": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "street": "rua legal",
+          "addressName": "Casa da Mãe",
+          "number": "209",
+          "country": "BR",
+          "city": "sjc daora",
+          "neighborhood": "bairo do mal",
+          "zipcode": "12233900"
+        }
+      },
+      "UpdateAddressRequest": {
+        "title": "UpdateAddressRequest",
+        "required": [
+          "addressId",
+          "newAddressData"
+        ],
+        "type": "object",
+        "properties": {
+          "addressId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "newAddressData": {
+            "$ref": "#/components/schemas/NewAddressData"
+          }
+        },
+        "example": {
+          "addressId": 1,
+          "newAddressData": {
+            "addressName": "Casa da Mãe Joana123"
+          }
+        }
+      },
+      "NewAddressData": {
+        "title": "NewAddressData",
+        "required": [
+          "addressName"
+        ],
+        "type": "object",
+        "properties": {
+          "addressName": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "addressName": "Casa da Mãe Joana123"
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "User Requests"
+    },
+    {
+      "name": "Address Requests"
+    }
+  ]
+}
